@@ -1,6 +1,9 @@
 CFLAGS?=-O2 -g -Wall -W 
 CFLAGS+= -I./aisdecoder -I ./aisdecoder/lib -I./tcp_listener
-LDFLAGS+=-lpthread -lm
+# Old verison could not get it to complie on PI 4
+#LDFLAGS+=-lpthread -lm
+# Changing it to below compile without error on PI4
+LDFLAGS+=-lpthread -lm -lrtlsdr -L /usr/lib/arm-linux-gnueabihf/
 
 ifeq ($(PREFIX),)
     PREFIX := /usr/local
